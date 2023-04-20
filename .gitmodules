@@ -1,0 +1,3 @@
+[submodule "mdk"]
+	path = mdk
+	url = https://github.com/cpq/mdk.git

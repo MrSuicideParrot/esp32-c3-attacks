@@ -1,0 +1,5 @@
+saleae
+pandas
+numpy
+jupyter
+pyserial

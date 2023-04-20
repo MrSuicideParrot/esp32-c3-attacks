@@ -1,0 +1,25 @@
+diff --git a/esp32c3/build.mk b/esp32c3/build.mk
+index cef0409..b080c4f 100644
+--- a/esp32c3/build.mk
++++ b/esp32c3/build.mk
+@@ -4,6 +4,7 @@ MDK         ?= $(realpath $(dir $(lastword $(MAKEFILE_LIST)))/..)
+ ESPUTIL     ?= $(MDK)/esputil/esputil
+ CFLAGS      ?= -W -Wall -Wextra -Werror -Wundef -Wshadow -pedantic \
+                -Wdouble-promotion -fno-common -Wconversion \
++			   -fno-builtin-printf \
+                -march=rv32imc -mabi=ilp32 \
+                -Os -ffunction-sections -fdata-sections \
+                -I. -I$(MDK)/$(ARCH) $(EXTRA_CFLAGS)
+diff --git a/esp32c3/mdk.h b/esp32c3/mdk.h
+index a100320..fe19f85 100644
+--- a/esp32c3/mdk.h
++++ b/esp32c3/mdk.h
+@@ -110,7 +110,7 @@ static inline void soc_init(void) {
+   REG(C3_SYSTEM)[2] |= BIT(0) | BIT(2);
+   REG(C3_SYSTEM)[22] = BIT(19) | (40U << 12) | BIT(10);
+   // REG(C3_RTCCNTL)[47] = 0; // RTC_APB_FREQ_REG -> freq >> 12
+-  ((void (*)(int)) 0x40000588)(160);  // ets_update_cpu_frequency(160)
++  ((void (*)(int)) 0x40000588)(80);  // ets_update_cpu_frequency(80)
+ 
+ #if 0
+   // Configure system clock timer, TRM 8.3.1, 8.9
