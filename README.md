@@ -8,7 +8,7 @@ With this demonstration, we aim to illustrate how different technologies can be 
 * [Vulnerable firmware](vulnerable-firmware)
 * Attacks
     * [Voltage Glitch](attacks/voltage-glitch)
-    * [Timing Attck](attacks/timing-attack)
+    * [Timing Attack](attacks/timing-attack)
     * [PCB level Attack](attacks/pcb-level-attack)
 
 ## Compile firmware and flash to hardware
